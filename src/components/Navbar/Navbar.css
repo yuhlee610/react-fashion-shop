@@ -1,0 +1,254 @@
+.navbar {
+    background-color: transparent;
+    padding: 1rem 8rem;
+    height: 5rem;
+    transition: all .3s;
+    z-index: 3;
+    position: relative;
+}
+
+.navbar.stick {
+    position: fixed;
+    top: 0;
+    box-shadow: 0 2px 4px 0 rgb(158 158 158 / 0%), 0 2px 15px 0 rgb(0 0 0 / 6%);
+    background-color: #fff;
+    /* width: 100vw; */
+    width: 100%;
+}
+
+/* stick */
+
+.navbar.stick .navbar-logo,
+.navbar.stick .nav-link {
+    color: #000;
+}
+
+.navbar.stick .navbar-logo:hover {
+    color: #000;
+}
+
+.navbar.stick .menu-icons__bars,
+.navbar.stick .menu-icons__account {
+    color: #000;
+}
+
+/* end stick */
+
+.navbar-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+
+/* logo */
+
+.navbar-logo {
+    font-size: 2.25rem;
+    color: #fff;
+}
+
+.navbar-logo:hover {
+    color: #fff;
+}
+
+.navbar-logo span {
+    margin-left: 0.5rem;
+}
+
+/* end logo */
+
+/* main menu */
+
+.main-menu {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.main-menu.active {
+    transform: translateX(0);
+}
+
+.nav-item {
+    padding-right: 1rem;
+    margin-right: .25rem;
+    cursor: pointer;
+    height: 100%;
+    margin-right: .25rem;
+}
+
+.nav-link {
+    height: 100%;
+    color: #fff;
+    letter-spacing: .1rem;
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.nav-link:hover {
+    color: #000;
+    background-color: #fff;
+}
+
+.nav-link span {
+    margin-left: 0.5rem;
+    transform: translateY(20%);
+}
+
+/* end main menu */
+
+/* menu icons */
+
+.nav-link__close {
+    margin-top: 5rem;
+    right: 3.5rem;
+    bottom: 2rem;
+    font-size: 2rem;
+    display: none;
+    position: absolute;
+    
+}
+
+.nav-link__close.active {
+    display: flex;
+}
+
+.menu-icons {
+    display: flex;
+}
+
+.menu-icons__bars {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    display: none;
+    color: #fff;
+}
+
+.menu-icons__account {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    color: #fff;
+}
+/* end menu icons */
+
+
+/* Submenu  */
+
+.nav__submenu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    padding: 2rem 8rem;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 9%);
+    display: none;
+}
+
+.submenu__list {
+    flex: 1;
+}
+
+.nav__submenu-link::before {
+    content: '';
+    width: 0;
+    height: 2px;
+    background-color: #000;
+    top: 100%;
+    position: absolute;
+    transition: .3s width;
+}
+
+.submenu__list li:hover .nav__submenu-link::before {
+    width: 100%;
+}
+
+.submenu__list li {
+    padding: 0.75rem
+}
+
+.submenu__list li a{
+    color: #000;
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    width: fit-content;
+    position: relative;
+}
+
+.submenu__card {
+    width: 250px;
+    margin-left: 1rem;
+}
+
+.submenu__card img {
+    width: 100%;
+}
+
+.submenu__card div {
+    font-weight: 500;
+    font-size: 1rem;
+    text-align: center;
+    margin: .75rem auto;
+}
+
+.submenu__card p {
+    text-align: center;
+}
+
+.nav-link--men:hover + .nav__submenu--men {
+    display: flex;
+}
+
+.nav__submenu--men:hover,
+.nav__submenu--women:hover {
+    display: flex;
+}
+
+.nav-link--women:hover + .nav__submenu--women {
+    display: flex;
+}
+
+
+/* End submenu */
+
+.ant-menu-item a:hover,
+.ant-menu-item a {
+    color: #000
+}
+
+.ant-btn-primary {
+    border-color: #000;
+}
+
+@media screen and (max-width: 1080px) {
+    .navbar {
+        padding: 1rem 3rem;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .navbar {
+        padding: 1rem 1rem;
+    }
+
+    .navbar-container {
+        justify-content: space-between;
+    }
+
+    .main-menu {
+        display: none;
+    }
+
+    .menu-icons__bars {
+        display: block;
+    }
+}

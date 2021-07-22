@@ -1,0 +1,78 @@
+.ant-btn-primary,
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background: #000;
+}
+
+.search__container .ant-input {
+    border: 2px solid #d9d9d9;
+}
+
+.search__container span.ant-input-group-wrapper.ant-input-group-wrapper-lg.ant-input-search.ant-input-search-large {
+    width: 60%;
+}
+
+.search__container span.anticon.anticon-search {
+    font-size: 21px;
+}
+
+.search__container .ant-input-search .ant-input:hover, .ant-input-search .ant-input:focus {
+    border-color: #000;
+}
+
+.search__container input.ant-input.ant-input-lg {
+    height: 3rem;
+    font-size: 1rem;
+    outline: #000;
+}
+
+.search__container button.ant-btn.ant-btn-primary.ant-btn-lg.ant-input-search-button {
+    height: 3rem;
+    width: 6rem;
+}
+
+.search__container .ant-input:focus, .ant-input-focused {
+    box-shadow: none;
+}
+
+.search__container {
+    padding: 3rem 8rem;
+}
+
+.search__container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.search__container h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.search__products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.5rem;
+}
+
+@media screen and (max-width: 1080px) {
+    .search__container {
+        padding: 2rem 3rem;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .search__container {
+        padding: 2rem 1rem;
+    }
+}
+
+@media screen and  (max-width: 590px) {
+    .search__products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search__container span.ant-input-group-wrapper.ant-input-group-wrapper-lg.ant-input-search.ant-input-search-large.ant-input-search-with-button {
+        width: 100%;
+    }
+}

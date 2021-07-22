@@ -1,0 +1,88 @@
+.sidebar-container {
+    position: fixed;
+    background-color: #fff;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    overflow: scroll;
+    transform: translateX(100%);
+    overflow-x: hidden;
+    transition: transform .3s;
+    z-index: 10;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    min-width: 20rem;
+}
+
+.sidebar-container::-webkit-scrollbar {
+    display: none;
+}
+
+.sidebar-container.active {
+    transform: translateX(0);
+}
+
+.sidebar__close {
+    font-size: 2.25rem;
+    text-align: right;
+    margin: 2rem;
+    border-bottom: 1px solid #e8e8e1;
+    padding: 1rem 1rem;
+    cursor: pointer;
+}
+
+.sidebar-item {
+    cursor: pointer;
+    margin: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e8e8e1;
+}
+
+
+.sidebar-link {
+    display: flex;
+    justify-content: space-between;
+    color: #000;
+    font-size: 1.25rem;
+}
+
+.sidebar-link:hover {
+    color: #000;
+}
+
+.submenu {
+    margin-left: 3.25rem;
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+    overflow: hidden;
+}
+
+.submenu.active {
+    max-height: 500px;
+    opacity: 1;
+    transition: max-height 0.3s ease-in;
+    animation: showSubmenu .6s ease-in;
+}
+
+@keyframes showSubmenu {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.submenu li a {
+    color: #000;
+    display: block;
+    font-size: 1.25rem;
+    margin: 2rem 0;
+}
+
+@media screen and  (max-width: 590px){
+    .sidebar-container {
+        width: 70%;
+    }
+}

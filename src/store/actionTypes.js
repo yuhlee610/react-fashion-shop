@@ -1,0 +1,25 @@
+export const SELECT_SUBCATEGORY = 'SELECT_SUBCATEGORY'
+
+export const FETCH_PRODUCTS_START = 'FETCH_PRODUCTS_START'
+export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS'
+export const FETCH_PRODUCTS_FAIL = 'FETCH_PRODUCTS_FAIL'
+
+export const FETCH_CART = 'FETCH_CART'
+export const ADD_TO_CART = 'ADD_TO_CART'
+export const MODIFY_CART_NUMBER = 'MODIFY_CART_NUMBER'
+
+export const SIGN_UP_START = 'SIGN_UP_START'
+export const SIGN_UP_SUCCESS = 'SIGN_UP_SUCCESS'
+export const SIGN_UP_FAIL = 'SIGN_UP_FAIL'
+export const SIGN_UP_FINISH = 'SIGN_UP_FINISH'
+
+export const SIGN_IN_START = 'SIGN_IN_START'
+export const SIGN_IN_SUCCESS = 'SIGN_IN_SUCCESS'
+export const SIGN_IN_FAIL = 'SIGN_IN_FAIL'
+export const SIGN_IN_FINISH = 'SIGN_IN_FINISH'
+export const LOG_OUT = 'LOG_OUT'
+
+export const BUY_START = 'BUY_START'
+export const BUY_SUCCESS = 'BUY_SUCCESS'
+export const BUY_FAIL = 'BUY_FAIL'
+export const BUY_FINISH = 'BUY_FINISH'
