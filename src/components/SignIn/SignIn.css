@@ -1,0 +1,27 @@
+.account__container {
+    margin: 3rem auto 5rem auto;
+    width: 45%;
+}
+
+.account__container h2 {
+    text-align: center;
+    font-size: 2rem;
+    letter-spacing: .2rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 860px) {
+    .account__container {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 590px) {
+    .account__container {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 0 1rem;
+        width: 100%;
+        overflow-x: hidden;
+    }
+}
