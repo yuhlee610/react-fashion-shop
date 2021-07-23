@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import * as actions from './store/index'
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop';
 import { Spin } from 'antd'
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 
 const Home = lazy(() => import('./pages/Home'))
 const About = lazy(() => import('./pages/About'))
@@ -29,21 +30,23 @@ function App({ onFetchProducts, onFetchCart, onCheckLogin }) {
   return (
     <Router>
       <ScrollToTop>
-        <Layout>
-          <Suspense fallback={<Spin size='large'/>}>
-            <Switch>
-              <Route path='/' exact component={Home} />
-              <Route path='/about' component={About} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/men' component={Men} />
-              <Route path='/women' component={Women} />
-              <Route path='/search/:name' component={ContentSearch} />
-              <Route path='/sign-up' component={Signup} />
-              <Route path='/sign-in' component={Signin} />
-              <Route path='/checkout' component={Checkout} />
-            </Switch>
-          </Suspense>
-        </Layout>
+        <ErrorBoundary>
+          <Layout>
+            <Suspense fallback={<Spin size='large' />}>
+              <Switch>
+                <Route path='/' exact component={Home} />
+                <Route path='/about' component={About} />
+                <Route path='/contact' component={Contact} />
+                <Route path='/men' component={Men} />
+                <Route path='/women' component={Women} />
+                <Route path='/search/:name' component={ContentSearch} />
+                <Route path='/sign-up' component={Signup} />
+                <Route path='/sign-in' component={Signin} />
+                <Route path='/checkout' component={Checkout} />
+              </Switch>
+            </Suspense>
+          </Layout>
+        </ErrorBoundary>
       </ScrollToTop>
     </Router>
   );

@@ -10,6 +10,7 @@
     margin-bottom: 2rem;
 }
 
+
 @media screen and (max-width: 860px) {
     .account__container {
         width: 70%;

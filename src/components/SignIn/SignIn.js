@@ -4,6 +4,7 @@ import * as actions from '../../store/index'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
+import './SignIn.css'
 
 function SignIn({ loading, onSignin, onSigninFinish, isSignInSuccess }) {
     const [checkRes, setCheckRes] = useState(false)
