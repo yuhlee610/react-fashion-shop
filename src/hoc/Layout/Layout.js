@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Aux from '../MyAux/MyAux'
 import Navbar from '../../components/Navbar/Navbar'
 import Sidebar from '../../components/Navbar/Sidebar/Sidebar'
 import Footer from '../../components/ContentHome/Footer/Footer'
@@ -9,7 +8,7 @@ function Layout({children}) {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
 
     return (
-        <Aux>
+        <>
             <Navbar showHandler={setShowMobileMenu} />
             <Sidebar show={showMobileMenu} showHandler={setShowMobileMenu} />
             <MyCarousel/>
@@ -17,7 +16,7 @@ function Layout({children}) {
                 {children}
             </main>
             <Footer/>
-        </Aux>
+        </>
     )
 }
 

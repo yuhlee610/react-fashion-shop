@@ -17,7 +17,7 @@
     width: 25%;
 }
 
-/* .list-categories {
+.list-categories {
     font-size: 1.2rem;
 }
 
@@ -42,7 +42,7 @@
 
 .list-categories li.active:hover {
     transform: translateX(0);
-} */
+}
 
 .women__cards {
     width: 75%;
@@ -51,7 +51,7 @@
     column-gap: 1.5rem;
 }
 
-/* .card-item {
+.card-item {
     width: 100%;
     margin-bottom: 2.5rem;
 }
@@ -79,7 +79,7 @@
 
 .card-item div {
     font-size: 1.2rem;
-} */
+}
 
 @media screen and (max-width: 1080px) {
     .women__container {
@@ -94,13 +94,13 @@
 }
 
 @media screen and  (max-width: 590px) {
-    /* .list-categories {
+    .list-categories {
         font-size: 1rem;
     }
 
     .list-categories li {
         margin-bottom: 0.75rem;
-    } */
+    }
 
     .women__container {
         flex-direction: column;
@@ -111,15 +111,15 @@
         width: 100%;
     }
 
-    /* .card-item {
+    .card-item {
         width: 100%;
-    } */
+    }
 
     .women__categories {
         width: 100%;
     }
 
-    /* .list-categories {
+    .list-categories {
         display: flex;
         flex-wrap: nowrap;
     }
@@ -136,5 +136,5 @@
     .card-item p,
     .card-item div {
         font-size: 1rem;
-    } */
+    }
 }
