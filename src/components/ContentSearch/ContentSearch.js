@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import './ContentSearch.css'
 import Search from 'antd/lib/input/Search'
 import { Spin } from 'antd'
+import "../ContentMen/ContentMen.css"
 
 function ContentSearch({ match, listProducts, loading }) {
     const [searchValue, setSearchValue] = useState(match.params.name)
