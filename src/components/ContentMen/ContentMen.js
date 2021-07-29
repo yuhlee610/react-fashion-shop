@@ -2,17 +2,11 @@ import React from 'react'
 import './ContentMen.css'
 import { connect } from 'react-redux'
 import * as actions from '../../store/index'
-import { useHistory } from 'react-router';
 import { Spin } from 'antd';
 import CardItem from '../CardItem/CardItem';
+import withAux from '../../hoc/MyAux/MyAux';
 
-function ContentMen({ selectedSubcate, onSetSelectedSubcategory, listProducts, loading }) {
-    const subcategory = ['All men', 'Shirts', 'Shorts', 'Jackets', 'Boardshorts']
-    const history = useHistory()
-
-    const clickProductHandler = (id) => {
-        history.push('/men/' + id)
-    }
+function ContentMen({ selectedSubcate, onSetSelectedSubcategory, listProducts, loading, subcategory, clickProductHandler }) {
 
     const clickSubcateHandler = (e) => {
         onSetSelectedSubcategory(e.target.innerText);
@@ -91,4 +85,5 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContentMen)
+export default connect(mapStateToProps, mapDispatchToProps)(withAux(ContentMen, "men"))
+

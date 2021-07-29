@@ -2,21 +2,16 @@ import React from 'react'
 import './ContentWomen.css'
 import { connect } from 'react-redux'
 import * as actions from '../../store/index'
-import { useHistory } from 'react-router';
 import { Spin } from 'antd'
 import CardItem from '../CardItem/CardItem';
+import withAux from '../../hoc/MyAux/MyAux';
 
-function ContentWomen({ selectedSubcate, onSetSelectedSubcategory, listProducts, loading }) {
-    const subcategory = ['All women', 'Dresses', 'Jackets', 'Shirts', 'Pants']
-    const history = useHistory()
+function ContentWomen({ selectedSubcate, onSetSelectedSubcategory, listProducts, loading, subcategory, clickProductHandler }) {
 
     const clickSubcateHandler = (e) => {
         onSetSelectedSubcategory(e.target.innerText);
     }
 
-    const clickProductHandler = (id) => {
-        history.push('/women/' + id)
-    }
 
     const filterProduct = listProducts.filter(ele => {
         const { sex, type } = ele
@@ -94,4 +89,5 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ContentWomen)
+export default connect(mapStateToProps, mapDispatchToProps)(withAux(ContentWomen, "women"))
+
