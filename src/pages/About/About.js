@@ -1,8 +1,8 @@
 import React from 'react'
-import './ContentAbout.css'
+import './About.css'
 import { Button } from 'antd'
 
-function ContentAbout() {
+function About() {
     return (
         <div className='about__section'>
             <h3>When we set out to create eight pieces that would bring out the best of both Chaco and United By Blue, we knew there were a couple things we had to bring to the table: Every piece had to be both land and water friendly, and made with the outdoors in mind. </h3>
@@ -36,4 +36,4 @@ function ContentAbout() {
     )
 }
 
-export default ContentAbout
+export default About

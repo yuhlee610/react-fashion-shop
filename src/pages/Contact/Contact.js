@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './ContentContact.css'
+import './Contact.css'
 import {
     Form,
     Input,
