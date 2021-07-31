@@ -33,12 +33,9 @@ function ContentCollection({
         onSetSelectedSubcategory(e.target.innerText);
     }
 
-    const filterProduct = listProducts.filter(ele => {
-        const { sex, type } = ele
-        if (sex === gender && (selectedSubcate === `All ${gender}` || selectedSubcate === null || selectedSubcate === type))
-            return ele
-        return false
-    })
+    const filterProduct = listProducts.filter(({ sex, type }) =>
+        (sex === gender && (selectedSubcate === `All ${gender}` || selectedSubcate === null || selectedSubcate === type))
+    )
 
     let render = null
     if (loading) {
@@ -47,19 +44,16 @@ function ContentCollection({
     else {
         render = (
             <div className="men__cards">
-                {filterProduct.map(ele => {
-                    const { id, image, name, price } = ele
-                    return (
-                        <CardItem
-                            key={id}
-                            id={id}
-                            clickProductHandler={clickProductHandler}
-                            image={image}
-                            name={name}
-                            price={price}
-                        />
-                    )
-                })}
+                {filterProduct.map(({ id, image, name, price }) => (
+                    <CardItem
+                        key={id}
+                        id={id}
+                        clickProductHandler={clickProductHandler}
+                        image={image}
+                        name={name}
+                        price={price}
+                    />
+                ))}
             </div>
         )
     }
@@ -70,7 +64,7 @@ function ContentCollection({
                 <ul className='list-categories'>
                     {subcategory.map((ele, index) => {
                         return (
-                            <li key={index} className={(selectedSubcate === null && index === 0) ? 'active' : selectedSubcate === ele ? 'active' : null} onClick={clickSubcateHandler}>
+                            <li key={index} className={((selectedSubcate === null && index === 0) || selectedSubcate === ele) ? 'active' : null} onClick={clickSubcateHandler}>
                                 {ele}
                             </li>
                         )

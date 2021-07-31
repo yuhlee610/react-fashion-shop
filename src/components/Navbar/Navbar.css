@@ -21,6 +21,7 @@
 .navbar.stick .navbar-logo,
 .navbar.stick .nav-link {
     color: #000;
+    text-transform: capitalize;
 }
 
 .navbar.stick .navbar-logo:hover {
@@ -82,6 +83,7 @@
 }
 
 .nav-link {
+    text-transform: capitalize;
     height: 100%;
     color: #fff;
     letter-spacing: .1rem;
@@ -157,6 +159,10 @@
     flex: 1;
 }
 
+.nav__submenu-link {
+    text-transform: capitalize;
+}
+
 .nav__submenu-link::before {
     content: '';
     width: 0;
@@ -208,15 +214,9 @@
     display: flex;
 }
 
-.nav__submenu--men:hover,
-.nav__submenu--women:hover {
+.nav__submenu--men:hover {
     display: flex;
 }
-
-.nav-link--women:hover + .nav__submenu--women {
-    display: flex;
-}
-
 
 /* End submenu */
 

@@ -27,23 +27,20 @@ function Cart({ isAuthen, listCart, onModifyCartNumber }) {
         localStorage.setItem('cart', JSON.stringify(listCart))
     })
 
-    const lstItem = listCart.map(ele => {
-        const { image, id, name, size, price, amount, number } = ele
-        return (
-            <CSSTransition key={id + size} classNames='fade' timeout={300}>
-                <CartItem
-                    image={image}
-                    name={name}
-                    size={size}
-                    amount={amount}
-                    number={number}
-                    id={id}
-                    price={price}
-                    changeCartNumberHandler={changeCartNumberHandler}
-                />
-            </CSSTransition>
-        )
-    })
+    const lstItem = listCart.map(({ image, id, name, size, price, amount, number }) => (
+        <CSSTransition key={id + size} classNames='fade' timeout={300}>
+            <CartItem
+                image={image}
+                name={name}
+                size={size}
+                amount={amount}
+                number={number}
+                id={id}
+                price={price}
+                changeCartNumberHandler={changeCartNumberHandler}
+            />
+        </CSSTransition>
+    ))
 
     const checkOutHandler = () => {
         if (!isAuthen) {

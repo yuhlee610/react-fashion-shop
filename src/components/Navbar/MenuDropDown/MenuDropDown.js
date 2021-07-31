@@ -34,9 +34,9 @@ function MenuDropDown({ isAuthen, onLogout }) {
     }
 
     return (
-        <React.Fragment>
+        <>
             {render}
-        </React.Fragment>
+        </>
     )
 }
 
