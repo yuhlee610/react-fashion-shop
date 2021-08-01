@@ -53,6 +53,8 @@ function BestSeller({ listProducts, loading }) {
         render = (
             <Swiper
                 slidesPerView={slidesPerView}
+                loop={true} 
+                loopFillGroupWithBlank={true}
                 spaceBetween={30}
                 pagination={{
                     clickable: true
@@ -82,12 +84,8 @@ function BestSeller({ listProducts, loading }) {
 
     return (
         <div className='best-seller'>
-            <h3>
-                We design durable travel apparel with a conscience — 100% made in America.
-            </h3>
-
+            <h3>We design durable travel apparel with a conscience — 100% made in America.</h3>
             <h2>Best Seller Of 2021</h2>
-
             {render}
         </div>
     )

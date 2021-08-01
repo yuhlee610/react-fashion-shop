@@ -4,9 +4,9 @@ import { Form, Input, Button, Modal, Result } from 'antd';
 import * as actions from '../../store/index'
 import { connect } from 'react-redux'
 import {useHistory} from 'react-router-dom'
+import withAuth from '../../hoc/withAuth/withAuth';
 
-function SignUp({ onSignup, onSignupFinish, loading, isSignUpSuccess }) {
-    const [checkRes, setCheckRes] = useState(false)
+function SignUp({ onSignup, onSignupFinish, loading, isSignUpSuccess, checkResize }) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const history = useHistory()
 
@@ -19,7 +19,9 @@ function SignUp({ onSignup, onSignupFinish, loading, isSignUpSuccess }) {
     const handleOk = () => {
         onSignupFinish()
         setIsModalVisible(false);
-        history.push('/sign-in')
+        if(isSignUpSuccess){
+            history.push('/sign-in')
+        }
     };
 
     const handleCancel = () => {
@@ -31,22 +33,7 @@ function SignUp({ onSignup, onSignupFinish, loading, isSignUpSuccess }) {
         onSignupFinish()
     }
 
-    const resizeHandler = () => {
-        if (window.innerWidth <= 574) {
-            setCheckRes(true)
-        } else {
-            setCheckRes(false)
-        }
-    }
-
-    useEffect(() => {
-        resizeHandler()
-    }, [])
-
-    window.addEventListener('resize', resizeHandler)
-
     const submitRegisterHandler = ({ username, password }) => {
-        console.log(username, password)
         onSignup(username, password)
     }
 
@@ -107,7 +94,7 @@ function SignUp({ onSignup, onSignupFinish, loading, isSignUpSuccess }) {
 
                 <Form.Item
                     wrapperCol={{
-                        offset: checkRes ? 0 : 5,
+                        offset: checkResize ? 0 : 5,
                         span: 24,
                     }}
                 >
@@ -135,4 +122,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(withAuth(SignUp))

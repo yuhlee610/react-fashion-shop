@@ -2,15 +2,21 @@ import React from 'react'
 import './Collection.css'
 import { Button } from 'antd'
 
+const collectionImg = [
+    "/images/collection-1.jpg",
+    "/images/collection-2.jpg",
+    "/images/collection-3.jpg",
+    "/images/collection-4.jpg",
+    "/images/collection-5.jpg"
+]
+
 function Collection() {
     return (
         <div className='collection-container'>
             <div className="collection-images">
-                <img src="/images/collection-1.jpg" alt="" />
-                <img src="/images/collection-2.jpg" alt="" />
-                <img src="/images/collection-3.jpg" alt="" />
-                <img src="/images/collection-4.jpg" alt="" />
-                <img src="/images/collection-5.jpg" alt="" />
+                {collectionImg.map((ele, index) => (
+                    <img key={index} src={ele} alt="" />
+                ))}
             </div>
 
             <div className="collection-content">

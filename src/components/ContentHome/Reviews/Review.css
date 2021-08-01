@@ -18,14 +18,12 @@
     align-items: center;
 }
 
-.review__left,
-.review__center,
-.review__right {
+.review__item {
     background-color: #fff;
     padding: 2.5rem 2rem;
 }
 
-.review__center {
+.review__item:nth-child(2) {
     box-shadow: 0 10px 25px rgb(0 0 0 / 10%);
     transform: scale(1.1);
 }
@@ -86,12 +84,10 @@
     .reviews__body {
         flex-direction: column;
     }
-    .review__left,
-    .review__center,
-    .review__right {
+    .review__item {
         margin-bottom: 2rem;
     }
-    .review__center {
+    .review__item:nth-child(2) {
         transform: none;
         box-shadow: none;
     }

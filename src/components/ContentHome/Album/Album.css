@@ -14,12 +14,12 @@
     height: 100%;
 }
 
-.album-top__first {
+.album-item:first-child {
     grid-column-start: 1;
     grid-column-end: 3;
 }
 
-.album-top__last {
+.album-item:last-child {
     grid-column-start: 3;
     grid-column-end: 5;
 }

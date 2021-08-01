@@ -4,10 +4,10 @@ import * as actions from '../../store/index'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import {useHistory} from 'react-router-dom'
-import './SignIn.css'
+import "../SignUp/SignUp.css"
+import withAuth from '../../hoc/withAuth/withAuth';
 
-function SignIn({ loading, onSignin, onSigninFinish, isSignInSuccess }) {
-    const [checkRes, setCheckRes] = useState(false)
+function SignIn({ loading, onSignin, onSigninFinish, isSignInSuccess, checkResize }) {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const history = useHistory()
 
@@ -17,29 +17,14 @@ function SignIn({ loading, onSignin, onSigninFinish, isSignInSuccess }) {
         }
     }, [isSignInSuccess])
 
-    useEffect(() => {
-        resizeHandler()
-    }, [])
-
-    const resizeHandler = () => {
-        if (window.innerWidth <= 574) {
-            setCheckRes(true)
-        } else {
-            setCheckRes(false)
-        }
-    }
-
-    window.addEventListener('resize', resizeHandler)
-
     const submitLoginHandler = ({ username, password }) => {
         onSignin(username, password)
     }
 
     const handleOk = () => {
-        let tmp = isSignInSuccess
         onSigninFinish()
         setIsModalVisible(false);
-        if (tmp) {
+        if (isSignInSuccess) {
             history.push('/')
         }
     };
@@ -52,7 +37,6 @@ function SignIn({ loading, onSignin, onSigninFinish, isSignInSuccess }) {
     const handleClose = () => {
         onSigninFinish()
     }
-
 
     return (
         <div className='account__container'>
@@ -110,7 +94,7 @@ function SignIn({ loading, onSignin, onSigninFinish, isSignInSuccess }) {
 
                 <Form.Item
                     wrapperCol={{
-                        offset: checkRes ? 0 : 5,
+                        offset: checkResize ? 0 : 5,
                         span: 24,
                     }}
                     style={{ marginBottom: '0.5rem' }}>
@@ -119,7 +103,7 @@ function SignIn({ loading, onSignin, onSigninFinish, isSignInSuccess }) {
 
                 <Form.Item
                     wrapperCol={{
-                        offset: checkRes ? 0 : 5,
+                        offset: checkResize ? 0 : 5,
                         span: 24,
                     }}
                 >
@@ -146,4 +130,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignIn)
+export default connect(mapStateToProps, mapDispatchToProps)(withAuth(SignIn))
