@@ -18,7 +18,7 @@ const Collection = lazy(() => import('./pages/Collection/Collection'))
 const ContentSearch = lazy(() => import('./components/ContentSearch/ContentSearch'))
 const Signup = lazy(() => import('./pages/SignUp/SignUp'))
 const Signin = lazy(() => import('./pages/SignIn/SignIn'))
-const Checkout = lazy(() => import('./components/Checkout/Checkout'))
+const Checkout = lazy(() => import('./pages/Checkout/Checkout'))
 
 function App({ onFetchProducts, onFetchCart, onCheckLogin }) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);

@@ -5,13 +5,12 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { IoIosArrowUp } from 'react-icons/io'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom';
-import * as actions from '../../store/index'
+import * as actions from '../../store/index';
 
 const { Option } = Select;
 
 const Checkout = ({ listCart, isAuthen, onBuy, listProducts, isBuySuccess, loading, onBuyFinish, email }) => {
-    const [style1, setStyle1] = useState(null)
-    const [style2, setStyle2] = useState(null)
+    const [resize, setResize] = useState(true)
     const [clickHeader, setClickHeader] = useState(false)
     const [showHeader, setShowHeader] = useState(false)
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -21,27 +20,18 @@ const Checkout = ({ listCart, isAuthen, onBuy, listProducts, isBuySuccess, loadi
     }
 
     const resizeHandler = () => {
-        if (window.innerWidth < 590) {
-            if (style1 !== null && style2 !== null) {
-                setStyle1(null)
-                setStyle2(null)
-            }
-        } else {
-            if (style1 === null && style2 === null) {
-                setStyle1({ display: 'inline-block', width: 'calc(50% - 8px)', margin: '0 8px 12px 0' })
-                setStyle2({ display: 'inline-block', width: 'calc(50% - 8px)', margin: '0 0 12px 8px' })
-            }
+        if (window.innerWidth < 590 && resize) {
+            setResize(false)
+        }
+        else if (window.innerWidth >= 590 && !resize) {
+            setResize(true)
         }
 
-        if (window.innerWidth <= 1080) {
-            if (showHeader === false) {
-                setShowHeader(true)
-            }
+        if (window.innerWidth <= 1080 && !showHeader) {
+            setShowHeader(true)
         }
-        else {
-            if (showHeader === true) {
-                setShowHeader(false)
-            }
+        else if (window.innerWidth > 1080 && showHeader) {
+            setShowHeader(false)
         }
     }
 
@@ -107,14 +97,14 @@ const Checkout = ({ listCart, isAuthen, onBuy, listProducts, isBuySuccess, loadi
                         <Form.Item
                             name='firstName'
                             rules={[{ required: true, message: 'First name is required' }]}
-                            style={style1}
+                            style={resize && { display: 'inline-block', width: 'calc(50% - 8px)', margin: '0 0 12px 8px' }}
                         >
                             <Input placeholder='First name' />
                         </Form.Item>
                         <Form.Item
                             name='lastName'
                             rules={[{ required: true, message: 'Last name is required' }]}
-                            style={style2}
+                            style={resize && { display: 'inline-block', width: 'calc(50% - 8px)', margin: '0 0 12px 8px' }}
                         >
                             <Input placeholder='Last name' />
                         </Form.Item>
@@ -157,7 +147,7 @@ const Checkout = ({ listCart, isAuthen, onBuy, listProducts, isBuySuccess, loadi
                     <Form.Item label={null}>
                         <Form.Item
                             name='country'
-                            style={style1}
+                            style={resize && { display: 'inline-block', width: 'calc(50% - 8px)', margin: '0 8px 12px 0' }}
                         >
                             <Select placeholder="Select country">
                                 <Option value="Viet Nam">Viet Nam</Option>
@@ -166,7 +156,7 @@ const Checkout = ({ listCart, isAuthen, onBuy, listProducts, isBuySuccess, loadi
                         </Form.Item>
                         <Form.Item
                             name='postal'
-                            style={style2}
+                            style={resize && { display: 'inline-block', width: 'calc(50% - 8px)', margin: '0 8px 12px 0' }}
                         >
                             <Input placeholder="Postal code" />
                         </Form.Item>

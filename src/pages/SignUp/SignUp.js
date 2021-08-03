@@ -122,4 +122,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(withAuth(SignUp))
+export default connect(mapStateToProps, mapDispatchToProps)(withAuth(SignUp, 574))

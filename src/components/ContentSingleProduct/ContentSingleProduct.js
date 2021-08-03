@@ -1,10 +1,25 @@
 import { Button } from 'antd'
-import React, {  useState } from 'react'
+import React, { useState } from 'react'
 import './ContentSingleProduct.css'
-import { ImStarFull } from 'react-icons/im'
 import { connect } from 'react-redux'
 import { Spin } from 'antd'
 import * as actions from '../../store/index'
+import ReviewCard from './ReviewCard'
+
+const reviewCards = [
+    {
+        heading: "I get so many compliments on this shirt!",
+        dateAndAuthor: "Sarah Jones on Oct 26, 2018",
+        body: "Everybody asks where I got it and are surprised to hear from an online shop. Love the fit!",
+        stars: 5
+    },
+    {
+        heading: "This dress is the pretiest I have!",
+        dateAndAuthor: "Kelly on Oct 26, 2018",
+        body: "Everybody asks where I got it and are surprised to hear from an online shop. Love the fit!",
+        stars: 5
+    },
+]
 
 function ContentSingleProduct({ match, listProducts, loading, onAdToCart }) {
     const [sizeProduct, setSizeProduct] = useState(null)
@@ -78,42 +93,17 @@ function ContentSingleProduct({ match, listProducts, loading, onAdToCart }) {
                 <h2>Customer Reviews</h2>
                 <p>Based on 2 reviews</p>
                 <div className="product__reviews">
-                    <div className="review-card">
-                        <div className="stars">
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                        </div>
-                        <div className="heading">
-                            I get so many compliments on this shirt!
-                        </div>
-                        <div className="date">
-                            Sarah Jones on Oct 26, 2018
-                        </div>
-                        <div className="body">
-                            Everybody asks where I got it and are surprised to hear from an online shop. Love the fit!
-                        </div>
-                    </div>
-                    <div className="review-card">
-                        <div className="stars">
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                            <ImStarFull style={{ marginRight: '0.2rem' }} />
-                        </div>
-                        <div className="heading">
-                            I get so many compliments on this shirt!
-                        </div>
-                        <div className="date">
-                            Sarah Jones on Oct 26, 2018
-                        </div>
-                        <div className="body">
-                            Everybody asks where I got it and are surprised to hear from an online shop. Love the fit!
-                        </div>
-                    </div>
+                    {
+                        reviewCards.map(({stars, heading, body, dateAndAuthor}, index) => (
+                            <ReviewCard 
+                                stars={stars}
+                                heading={heading}
+                                body={body}
+                                dateAndAuthor={dateAndAuthor}
+                                key={index}
+                            />
+                        ))
+                    }
                 </div>
             </div>
         </div>

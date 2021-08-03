@@ -1,6 +1,6 @@
 import React from 'react'
 import './Review.css'
-import { AiFillStar } from 'react-icons/ai'
+import Rating from '../../Rating/Rating'
 
 const data = [
     {
@@ -51,16 +51,6 @@ function Reviews() {
     )
 }
 
-function Rating({stars}) {
-    let rate = []
-    for (let i = 0; i < stars; i++) {
-        rate.push(
-            <div className="rate__star" key={i}>
-                <AiFillStar />
-            </div>
-        )
-    }
-    return rate
-}
+
 
 export default Reviews

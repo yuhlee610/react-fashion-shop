@@ -3,6 +3,7 @@ import './BestSeller.css'
 import { Spin } from 'antd';
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router';
+import withAuth from '../../../hoc/withAuth/withAuth'
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,25 +18,9 @@ import SwiperCore, { Pagination } from "swiper/core";
 // install Swiper modules
 SwiperCore.use([Pagination]);
 
-function BestSeller({ listProducts, loading }) {
-    const [slidesPerView, setSlidesPerView] = useState(4)
+function BestSeller({ listProducts, loading, checkResize }) {
     const history = useHistory()
-
-    const resizeHandler = () => {
-        if (window.innerWidth <= 590) {
-            setSlidesPerView(2);
-        }
-        else {
-            setSlidesPerView(4);
-        }
-    }
-
-    window.addEventListener('resize', resizeHandler)
-
-    useEffect(() => {
-        resizeHandler()
-    }, [])
-
+    
     const clickHandler = (id, sex) => {
         if(sex === 'men') {
             history.push(`/men/${id}`)
@@ -52,7 +37,7 @@ function BestSeller({ listProducts, loading }) {
     else {
         render = (
             <Swiper
-                slidesPerView={slidesPerView}
+                slidesPerView={checkResize ? 2 : 4}
                 loop={true} 
                 loopFillGroupWithBlank={true}
                 spaceBetween={30}
@@ -98,4 +83,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, null)(BestSeller)
+export default connect(mapStateToProps, null)(withAuth(BestSeller, 590))

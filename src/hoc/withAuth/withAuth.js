@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const withAuth = (WrappedComponent) => {
+const withAuth = (WrappedComponent, width) => {
     return ({ ...props }) => {
         const [checkResize, setCheckResize] = useState(false)
 
@@ -9,9 +9,10 @@ const withAuth = (WrappedComponent) => {
         }, [])
 
         const resizeHandler = () => {
-            if (window.innerWidth <= 574) {
+            if (window.innerWidth <= width && !checkResize) {
                 setCheckResize(true)
-            } else {
+            } 
+            else if (window.innerWidth > width && checkResize) {
                 setCheckResize(false)
             }
         }
